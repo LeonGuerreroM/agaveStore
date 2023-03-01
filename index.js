@@ -13,6 +13,8 @@ app.use(ormErrorHandler);
 app.use(boomErrorHandler);
 app.use(generalErrorHandler);
 
+require('./utils/auth');
+
 app.listen(config.port, ()  => {
     console.log('listening on port '+config.port);
 })
