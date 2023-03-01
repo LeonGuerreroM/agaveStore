@@ -11,7 +11,8 @@
     "migrations:revert": "sequelize-cli db:migrate:undo",
     "migrations:delete": "sequelize-cli db:migrate:undo:all",
     "seeders:generate": "sequelize-cli seed:generate --name",
-    "seeders:run": "sequelize-cli db:seed:all"
+    "seeders:run": "sequelize-cli db:seed:all",
+    "docs": "jsdoc -c jsdoc.json"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "jsdoc": "^4.0.2",
     "jsonwebtoken": "^9.0.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
@@ -31,9 +33,11 @@
     "sequelize": "^6.29.0"
   },
   "devDependencies": {
+    "clean-jsdoc-theme": "^4.2.6",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "jsdoc-http-plugin": "^0.3.2",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.4",
     "sequelize-cli": "^6.6.0"

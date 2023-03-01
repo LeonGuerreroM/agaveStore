@@ -1,0 +1,17 @@
+{
+	"plugins": ["jsdoc-http-plugin"],
+	"source": {
+        "include": ["routes"],
+        "includePattern": ".js$",
+        "excludePattern": "(node_modules|docs|postgres_data)"
+	},
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    },
+    "opts": {
+        "recurse": true,
+        "destination": "./docs",
+        "template": "./node_modules/clean-jsdoc-theme"
+    }
+}

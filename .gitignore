@@ -219,3 +219,4 @@ $RECYCLE.BIN/
 
 docker-compose.yml
 postgres_data
+docs
