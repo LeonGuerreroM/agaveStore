@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 
 const success = require('../utils/successResponse');
 const validationHandler = require('../utils/middlewares/validationHandler');
@@ -8,6 +9,7 @@ const Services = require('../services/orderServices');
 const services = new Services();
 
 router.post('/checkout',
+    passport.authenticate('jwt', {session: false}),
     validationHandler(checkout, 'body'),
     async (req, res, next) => {
         try{
