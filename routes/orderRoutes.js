@@ -2,10 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 const success = require('../utils/successResponse');
+const validationHandler = require('../utils/middlewares/validationHandler');
+const { checkout } = require('../utils/schemas/orderSchemas');
 const Services = require('../services/orderServices');
 const services = new Services();
 
-router.post('/checkout', 
+router.post('/checkout',
+    validationHandler(checkout, 'body'),
     async (req, res) => {
         try{
             const { items } = req.body;
