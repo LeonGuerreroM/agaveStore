@@ -12,7 +12,6 @@ const LocalStrategy = new Strategy(
     async (email, password, done) => {
         try{
             const user = await services.getUserByEmail(email);
-            console.log(user)
             const isMatch = await bcrypt.compare(password, user.password);
             if(!isMatch){
                 done(boom.unauthorized(), false);
