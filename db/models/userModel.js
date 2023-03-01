@@ -31,7 +31,7 @@ const UserSchema = {
 
 class User extends Model{
 
-    static associate(models){
+    static associate(models){ //eslint-disable-line
     }
 
     static config(sequelize){
