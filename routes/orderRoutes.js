@@ -9,13 +9,13 @@ const services = new Services();
 
 router.post('/checkout',
     validationHandler(checkout, 'body'),
-    async (req, res) => {
+    async (req, res, next) => {
         try{
             const { items } = req.body;
             const total = await services.calculateTotal(items);
             success(res, 201, 'total', total, 'total returned');
-        }catch{
-            console.log('there was some error');
+        }catch(error){
+            next(error);
         }
     }
 );
