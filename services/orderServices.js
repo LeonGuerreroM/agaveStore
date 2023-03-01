@@ -5,16 +5,8 @@ class OrderServices{
     constructor(){}
 
     async calculateTotal(items){
-        //get products
-        //loop through result and set product code as object name on an array
-            //add a subatribute quantity as 0 and a subatribute price (totals)
-        //loop through items and increase quiantity when needed (directly)
-        //loop through totals and do the operations needed
-
-        let totals = [];
+        let totals = { };
         let total = 0;
-        let appeared = false;
-        let tshirtPrice = 20;
 
         const products = await models.Product.findAll({
             where:{
@@ -25,49 +17,22 @@ class OrderServices{
         })
         
         for(let i of products){
-            totals.push({
-                [i.dataValues.code]: {
-                    quantity: 0,
-                    price: i.dataValues.price
-                }
-            })
+            totals[i.dataValues.code] = {
+                quantity: 0,
+                price: i.dataValues.price,
+                sale: i.dataValues.saleId
+            }
         }
 
         for(let i of items){
             totals[i].quantity++; 
         }
 
-        
-
-        for(let i of items){
-            for(let j of totals){
-                if(i === j.product){
-                    j.quantity++;
-                    appeared = true;
-                    break;
-                }   
-            }
-            if(!appeared){
-                totals.push( {
-                    product: i,
-                    quantity: 1
-                });
-            }
-            appeared = false;
+        for(let i in totals){
+            if(totals[i].sale === 2) total += totals[i].price * Math.ceil(totals[i].quantity/2);
+            else if(totals[i].sale === 3 && totals[i].quantity >= 3) total += totals[i].price*0.95 * totals[i].quantity;
+            else total += totals[i].price * totals[i].quantity;
         }
-
-        for(let i of totals){
-            if(i.product === 'PANTS'){
-                total += Math.ceil(i.quantity/2) * 5;
-            }else if(i.product === 'TSHIRT'){
-                if(i.quantity >= 3) tshirtPrice = 19;
-                total += i.quantity * tshirtPrice;
-            }else if(i.product === 'HAT'){
-                total += i.quantity * 7.50;
-            }
-        }
-
-        
 
         return total
     }
