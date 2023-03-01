@@ -12,7 +12,7 @@ router.post('/login',
             const user = req.user;
             const payload = {
                 sub: user.id,
-                rol: user.rolId
+                rol: user.rol
             }
             const token = jwt.sign(payload, config.jwtSecret);
             res.status(200).json({
