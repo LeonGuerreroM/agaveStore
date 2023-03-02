@@ -9,7 +9,7 @@ The main functionalities include:
 
 The API documentation is available [here](https://leafy-sunburst-bf2bb2.netlify.app/).
 
-The API is deployed and fully available here: <https://protected-tor-52670.herokuapp.com> (DB is already populated with needed information to perform requested operations) 
+The API is deployed and fully available using: <https://protected-tor-52670.herokuapp.com> (DB is already populated with needed information to perform requested operations) 
 
 Database structure consists of:
 - User Table: Store valid users information and access level as role.
