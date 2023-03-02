@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 const config = require('./config');
 const routesSetup = require('./routes');
@@ -7,6 +8,18 @@ const { logErrors, ormErrorHandler, boomErrorHandler, generalErrorHandler } = re
 
 app.use(express.json());
 routesSetup(app);
+
+const whitelist = ['http://localhost:3000', '0.0.0.0']; //fully open for demonstration purposes
+const options = {
+    origin: (origin, callback) => {
+        if(whitelist.includes(origin) || !origin){
+            callback(null, true);
+        }else{
+            callback(new Error('Access denied'));
+        }
+    }
+}
+app.use(cors(options));
 
 app.use(logErrors);
 app.use(ormErrorHandler);
