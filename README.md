@@ -20,11 +20,11 @@ See the ER diagrame [here](https://drive.google.com/file/d/1ZIy3hF9JDYd7-OYs6DlQ
 
 ## Features
 The following features and technologies are included in this project:
-- API created using *Express* designed driven by scalability and optimization.
-- *PostgreSQL* db created/managed using *Sequelize*.
-- Authentication, sessions management & routes protection using *Passport.js* & *JWT*.
-- Unit testing using *Jest* & *Supertest*.
-- *Docker* container with PostgreSQL & PGAdmin images.
+- API created using ***Express*** designed driven by scalability and optimization.
+- ***PostgreSQL*** db created/managed using ***Sequelize***.
+- Authentication, sessions management & routes protection using ***Passport.js*** & ***JWT***.
+- Unit testing using ***Jest*** & ***Supertest***.
+- ***Docker*** container with PostgreSQL & PGAdmin images.
 
 Some other implementations:
 
@@ -74,4 +74,4 @@ Run tests
 $npm run test
 ~~~~~~
 
-Note: Docker and Node.js are neccessary to build this project
+Note: Docker and Node.js are necessary to build this project
