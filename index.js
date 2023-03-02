@@ -19,6 +19,7 @@ const options = {
         }
     }
 }
+
 app.use(cors(options));
 
 app.use(logErrors);
