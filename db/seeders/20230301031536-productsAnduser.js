@@ -36,8 +36,8 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) { //eslint-disable-line
-    await queryInterface.bulkDelete(SALE_TABLE)
     await queryInterface.bulkDelete(PRODUCT_TABLE)
+    await queryInterface.bulkDelete(SALE_TABLE)
     await queryInterface.bulkDelete(USER_TABLE)
   }
 };

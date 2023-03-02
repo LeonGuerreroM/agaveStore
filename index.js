@@ -15,6 +15,8 @@ app.use(generalErrorHandler);
 
 require('./utils/auth');
 
-app.listen(config.port, ()  => {
+const server = app.listen(config.port, ()  => {
     console.log('listening on port '+config.port);
 })
+
+module.exports = { app, server };
