@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=agave_store
+      - POSTGRES_USER=agave_admin
+      - POSTGRES_PASSWORD=admin1234
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@mail.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - 5050:80
+  
