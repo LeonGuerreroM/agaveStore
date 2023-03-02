@@ -45,7 +45,6 @@
     "jsdoc-http-plugin": "^0.3.2",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.4",
-    "sequelize-cli": "^6.6.0",
     "supertest": "^6.3.3"
   },
   "jest": {
